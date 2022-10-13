@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+set -u
+
+HOME_DIR="$(
+  cd "$(dirname $0)"
+  pwd
+)"
+UTILS_DIR="${HOME_DIR}/utils"
+E_ARGS=1
+
+# Dependencies
+deps=("dig" "whois" "openssl" "nc")
+
+# Includes
+source "${UTILS_DIR}/msg.sh"
+source "${UTILS_DIR}/usage.sh"
+source "${UTILS_DIR}/checkDependencies.sh"
+source "${UTILS_DIR}/portScan.sh"
+source "${UTILS_DIR}/sslCheck.sh"
+source "${UTILS_DIR}/dnsCheck.sh"
+
+source "${HOME_DIR}/itsalwaysdns.conf"
+
+if ! checkDependencies; then
+  msg 2 "FATAL: Dependency missing. Exiting"
+  exit 1
+fi
+
+[ $# -ne ${E_ARGS} ] && {
+  usage
+  exit 1
+}
+
+domain="$1"
+domain="$(echo "${domain}" | sed 's/$.//g')"
+
+msg 0 "*** DNS Report for ${domain} ($(date)) ***"
+dnsCheck "${domain}"
