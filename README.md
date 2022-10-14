@@ -12,6 +12,15 @@ I've used that as my motivation to create this script!
 
 See the example below for the kind of output you may expect.
 ## Usage
+#### Option A: Docker Image
+
+1. Run the container `curtiskneisel/itsalwaysdns`, substituting `example.com` with the domain that you wish to check
+
+```
+docker run --rm -it curtiskneisel/itsalwaysdns example.com
+```
+
+#### Option B: Clone and run manually
 
 1. Clone this repo and change directory
 
@@ -21,7 +30,7 @@ git clone https://github.com/curtis86/itsalwaysdns && cd itsalwaysdns
 
 2. Edit `itsalwaysdns.conf` and set the resolvers you'd like to use - if you're not sure, you can keep the defaults here (public recursive resolvers), or use `nameservers` from your `/etc/resolv.conf`
 
-3. Run the script, substituting `example.com` with the domain you wish to check:
+3. Run the script, substituting `example.com` with the domain that you wish to check:
 
 ```
 ./itsalwaysdns example.com
@@ -93,4 +102,4 @@ SSL fingerprints:
 * Metadata returned from DNS lookups need to be further assesed, the current implentation is still quite simple
 * SSL CN check is simply the Subject field, it does not yet support Subject Alternative Name (SAN)
 * More checks will be added later, ie. MX record, SSL cipher and TLS versions, HTTP content
-* Docker container coming soon!
+~~* Docker container coming soon!~~

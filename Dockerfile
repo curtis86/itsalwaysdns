@@ -1,5 +1,6 @@
 FROM alpine:3.14
-MAINTAINER Curtis K <curtis@linux.com>
+LABEL AUTHOR="Curtis K <curtis@linux.com>"
+LABEL GITHUB_REPO="https://github.com/curtis86/itsalwaysdns"
 
 # Run as unprivileged user
 ENV USERNAME=itsalwaysdns
