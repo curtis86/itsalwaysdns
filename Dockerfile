@@ -6,7 +6,7 @@ ENV USERNAME=itsalwaysdns
 ENV GROUP=itsalwaysdns
 
 RUN addgroup $GROUP
-RUN adduser $GROUP $USERNAME
+RUN adduser --disabled-password $GROUP $USERNAME
 
 # Install script dependencies
 RUN apk add --no-cache openssl curl bind-tools bash netcat whois
