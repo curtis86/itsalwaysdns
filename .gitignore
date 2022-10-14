@@ -1,0 +1,5 @@
+*.swp
+.ssh/
+id_*
+.vscode
+.DS_Store
