@@ -13,4 +13,4 @@ RUN apk add --no-cache openssl curl bind-tools bash netcat-openbsd whois ncurses
 USER $USERNAME
 WORKDIR /home/$USERNAME
 ADD . .
-CMD /home/$USERNAME/itsalwaysdns
+ENTRYPOINT ["/home/$USERNAME/itsalwaysdns"]
