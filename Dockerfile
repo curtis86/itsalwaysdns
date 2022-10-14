@@ -4,8 +4,6 @@ MAINTAINER Curtis K <curtis@linux.com>
 # Run as unprivileged user
 ENV USERNAME=itsalwaysdns
 ENV GROUP=itsalwaysdns
-
-RUN addgroup $GROUP
 RUN adduser --disabled-password $GROUP $USERNAME
 
 # Install script dependencies
