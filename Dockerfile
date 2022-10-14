@@ -14,4 +14,6 @@ USER $USERNAME
 WORKDIR /home/$USERNAME
 ADD . .
 
-CMD "/home/itsalwaysdns/itsalwaysdns"
+ENV SCRIPT_PATH="/home/${USERNAME}/itsalwaysdns"
+
+ENTRYPOINT ["/home/itsalwaysdns/itsalwaysdns"]
