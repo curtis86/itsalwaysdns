@@ -14,4 +14,4 @@ RUN apk add --no-cache openssl curl bind-tools bash netcat whois
 # Add script to home directory of user
 USER $USERNAME
 WORKDIR /home/$USERNAME
-ADD . 
+ADD . .
