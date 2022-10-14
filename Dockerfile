@@ -7,9 +7,10 @@ ENV GROUP=itsalwaysdns
 RUN adduser --disabled-password $GROUP $USERNAME
 
 # Install script dependencies
-RUN apk add --no-cache openssl curl bind-tools bash netcat-openbsd whois
+RUN apk add --no-cache openssl curl bind-tools bash netcat-openbsd whois ncurses
 
 # Add script to home directory of user
 USER $USERNAME
 WORKDIR /home/$USERNAME
 ADD . .
+CMD /home/$USERNAME/itsalwaysdns
